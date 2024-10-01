@@ -13,7 +13,7 @@ import pandas as pd
 import panel as pn
 from app.section_2 import SectionExplorer
 import param
-from overview import Overview
+from app.overview import Overview
 from panel.theme import Theme
 from bokeh.themes import CALIBER
 
@@ -233,7 +233,8 @@ main_app = main()
 
 
 
-app = pn.serve(main_app,
-         threaded=True
-         )
+#app = pn.serve(main_app,
+#         threaded=True
+#         )
 
+main_app
