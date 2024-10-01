@@ -1,0 +1,35 @@
+﻿Program,Year,Business Area 1,Business Area 2,Grade,USA,USN,USAF,USPHS,CIV,CECOM,SPAWAR,OTHER GOV,TOTAL
+JOS,2014,Program Management,"Program Manager, Deputy","O-6, GS-15",0,1,0,0,1,0,0,0,2
+JOS,2014,Program Management,Project Manager (Assistant PM I & II),"O-6, GS-15",1,1,1,1,3,0,0,0,7
+JOS,2014,Business Operations,Business Operations Lead,GS-15,0,0,0,0,1,0,0,0,1
+JOS,2014,Business Operations,Contract Management (Matrixed from PEO),GS-14/15,0,0,0,0,1,0,3,0,4
+JOS,2014,Business Operations,Resource Management (Matrixed from PEO),GS-14/15,0,0,0,0,1,0,0,0,1
+JOS,2014,Business Operations,Legal (Matrixed from PEO),GS-14/15,0,0,0,0,0,0,1,0,1
+JOS,2014,Business Operations,Acquisition,GS-14/15,0,0,0,0,1,0,0,0,1
+JOS,2014,Business Operations,Licensing,GS-14/15,0,0,0,0,0,1,0,0,1
+JOS,2014,Business Operations,Policy,GS-14/15,0,0,0,0,1,0,0,0,1
+JOS,2014,Revenue Cycle,Revenue Cycle Lead,O-6,1,0,0,0,0,0,0,0,1
+JOS,2014,Revenue Cycle,Scheduling,GS-14/15,0,0,0,0,0,0,0,0,0
+JOS,2014,Revenue Cycle,Registration,O-5,0,0,0,0,0,0,0,0,0
+JOS,2014,Revenue Cycle,Billing,O-5,0,0,0,0,0,0,0,0,0
+JOS,2014,Revenue Cycle,Health Information Management,O-5,0,1,0,0,0,0,0,0,1
+JOS,2014,Revenue Cycle,Dictation and Transcription,GS-13/14,0,0,0,0,0,0,0,0,0
+JOS,2014,Revenue Cycle,Scanning,GS-13/14,0,0,0,0,0,0,0,0,0
+JOS,2014,Revenue Cycle,Coding,GS-14/15,0,0,0,0,1,0,0,0,1
+JOS,2015,Program Management,"Program Manager, Deputy","O-6, GS-15",0,3,0,0,1,0,0,0,4
+JOS,2015,Program Management,Project Manager (Assistant PM I & II),"O-6, GS-15",1,1,1,1,3,0,0,0,7
+JOS,2015,Business Operations,Business Operations Lead,GS-15,0,0,0,0,1,0,0,0,1
+JOS,2015,Business Operations,Contract Management (Matrixed from PEO),GS-14/15,0,0,0,1,1,0,3,0,5
+JOS,2015,Business Operations,Resource Management (Matrixed from PEO),GS-14/15,0,0,0,1,1,0,0,0,2
+JOS,2015,Business Operations,Legal (Matrixed from PEO),GS-14/15,0,0,0,0,0,0,1,0,1
+JOS,2015,Business Operations,Acquisition,GS-14/15,0,0,0,0,2,0,0,0,2
+JOS,2015,Business Operations,Licensing,GS-14/15,0,0,0,0,0,1,0,0,1
+JOS,2015,Business Operations,Policy,GS-14/15,0,0,0,3,1,0,0,0,4
+JOS,2015,Revenue Cycle,Revenue Cycle Lead,O-6,1,0,0,0,0,0,0,0,1
+JOS,2015,Revenue Cycle,Scheduling,GS-14/15,0,0,0,0,0,0,0,0,0
+JOS,2015,Revenue Cycle,Registration,O-5,0,0,0,0,0,0,0,0,0
+JOS,2015,Revenue Cycle,Billing,O-5,0,0,0,0,0,0,0,0,0
+JOS,2015,Revenue Cycle,Health Information Management,O-5,0,1,0,0,0,0,0,0,1
+JOS,2015,Revenue Cycle,Dictation and Transcription,GS-13/14,0,0,0,0,0,0,0,0,0
+JOS,2015,Revenue Cycle,Scanning,GS-13/14,0,0,0,0,0,0,0,0,0
+JOS,2015,Revenue Cycle,Coding,GS-14/15,0,0,0,0,1,0,0,0,1
