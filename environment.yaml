@@ -1,0 +1,11 @@
+channels:
+- pyviz
+- auto
+
+packages:
+- jupyter-panel-proxy
+
+dependencies:
+- pandas
+- pymongo
+- mammoth

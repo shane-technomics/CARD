@@ -11,9 +11,11 @@ from pymongo import MongoClient
 #import hvplot.pandas
 import pandas as pd
 import panel as pn
-from section_1 import section_1
 from section_2 import SectionExplorer
 import param
+from overview import Overview
+from panel.theme import Theme
+from bokeh.themes import CALIBER
 
 #db connection
 ATLAS_URI = 'mongodb+srv://sstumvoll:1qaz%21QAZ@cluster0.xfw60.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
@@ -30,6 +32,20 @@ styles = {
     "padding": "10px",
 }
 
+class CardTheme(Theme): # generic class
+    """
+    The DarkTheme provides a dark color palette
+    """
+
+    bokeh_theme = param.ClassSelector(class_=(Theme, str), default=CALIBER)
+
+class MaterialCardTheme(CardTheme): # specific class
+
+    # css = param.Filename() Here we could declare some custom CSS to apply
+
+    # This tells Panel to use this implementation
+    _template = pn.template.MaterialTemplate
+
 #tab dev
 #@pn.cache()
 
@@ -43,7 +59,9 @@ styles = {
 #section_1.tab_create(table_1, table_2)
 staff_df = pd.DataFrame(list(staffing.find({})))
 
+overview = Overview(data=staff_df)
 section_1 = SectionExplorer(data=staff_df)
+
 
 #search
 def get_search():
@@ -68,8 +86,11 @@ column_search = pn.Column(table_search,
 
 #column_search.append(section_1)
 
+
+
 #sidbar dev
 jos_pages = {
+    "Overview":  pn.Column("# JOS Roles", overview),
     "Roles": pn.Column("# JOS Roles", section_1),
     "Program": pn.Column("# Program", section_1),
     "Milestone": pn.Column("# Milestone", section_1),
@@ -82,6 +103,7 @@ jos_pages = {
 }
 
 dil_pages = {
+    "Overview":  pn.Column("# JOS Roles", overview),
     "Milestone": pn.Column("# Milestone", section_1),
     "Roles": pn.Column("# Data Integration Layer Roles", section_1),
     "Program": pn.Column("# Program", section_1),
@@ -144,49 +166,74 @@ def c(event):
 
 
 pb = pageBuilder()
-program_text = pn.widgets.StaticText(value='Joint Operating Systems')
+program_text = pn.widgets.StaticText(
+    value='Joint Operating Systems',
+    stylesheets=[':host {color: white; font-size: 200%}']
+    )
 
 menu_button.on_click(c)
 
 
-def show(page, program):
-    return pb.pages[page]
+def show(page, user, password):
+    pw = "password!"
+    u = 'user'
+    if (password == pw) & (user == u):
+        content = pb.pages[page]
+    else: content = pn.Column(user_input, password_input, signin)
+        #content = open('login.html', 'r', encoding='utf-8').read()
+    return content
 
 
-starting_page = pn.state.session_args.get("page", [b"Roles"])[0].decode()
+starting_page = pn.state.session_args.get("page", [b"Overview"])[0].decode()
 section = pn.widgets.RadioButtonGroup(
     value=starting_page,
     options=list(pb.pages.keys()),
     name="Section",
     sizing_mode="fixed",
-    button_type="success",
+    button_type="primary",
     orientation='vertical',
     width=300,
     height=400
 )
        
-def showPrograms(program):
-    section.options = program
-    return section
-    
     
 #main
 def main():
-    ishow = pn.bind(show, page=section, program=menu_button.param.clicked)
     #pn.state.location.sync(page, {"value": "page"})
     
     
-    template = pn.template.FastListTemplate(
+    template = pn.template.MaterialTemplate(
         title="Cost Analysis Requirements Document (CARD)",
         header=pn.Row(program_text, menu_button, height=200, width=400),
         sidebar=[section],
         main=[ishow],
-        main_layout=None,
-        accent=ACCENT,
+        #main_layout='card',
+       # accent=ACCENT,
     ).servable()
     return template
 
-app = pn.serve(main,
+
+    
+
+user_input = pn.widgets.TextInput(name="User Name:", placeholder="user")
+password_input = pn.widgets.TextInput(name="Password:", placeholder="password")
+#password_input.param.watch(check_password, 'value')
+signin = pn.widgets.Button(name='Sign in', button_type='primary')
+def x(event):
+   password_input.value = password_input.value +'!'
+
+signin.on_click(x)
+
+ishow = pn.bind(show, page=section, user=user_input.param.value, password=password_input.param.value)
+main_app = main()
+#main_app.main.objects = [pshow]
+#main_app.visible = False
+
+#main_app.servable() 
+
+
+
+app = pn.serve(main_app,
          threaded=True
          )
 
