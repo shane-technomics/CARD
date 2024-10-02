@@ -233,8 +233,7 @@ main_app = main()
 
 
 
-#app = pn.serve(main_app,
-#         threaded=True
-#         )
+app = pn.serve(main_app,
+         threaded=True
+         )
 
-main_app
