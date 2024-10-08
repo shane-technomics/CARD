@@ -24,6 +24,8 @@ staffing = client.test.staffing
 
 #ui settings
 pn.extension("tabulator")
+pn.extension('vega')
+
 ACCENT = "teal"
 
 styles = {
@@ -215,8 +217,8 @@ def main():
 
     
 
-user_input = pn.widgets.TextInput(name="User Name:", placeholder="user")
-password_input = pn.widgets.TextInput(name="Password:", placeholder="password")
+user_input = pn.widgets.TextInput(name="User Name:", placeholder="user", value="user")
+password_input = pn.widgets.TextInput(name="Password:", placeholder="password", value="password")
 #password_input.param.watch(check_password, 'value')
 signin = pn.widgets.Button(name='Sign in', button_type='primary')
 def x(event):

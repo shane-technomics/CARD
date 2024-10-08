@@ -21,8 +21,6 @@ import numpy as np
 import altair as alt
 from vega_datasets import data
 
-pn.extension("tabulator")
-
 
 class Overview(Viewer):
     data = param.DataFrame(doc="Stores a DataFrame to explore")
